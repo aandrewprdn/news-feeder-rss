@@ -1,0 +1,28 @@
+name: News Digest
+
+on:
+  schedule:
+    - cron: '0 8 * * 1-5'  # 7:00 UTC, будни
+  workflow_dispatch:  # ручной запуск для теста
+
+permissions:
+  contents: write  # чтобы коммитить seen_ids.json обратно
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install feedparser google-genai requests
+      - run: python main.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update seen articles"
+          file_pattern: seen_ids.json
