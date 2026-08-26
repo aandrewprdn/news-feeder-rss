@@ -1,5 +1,3 @@
-"""Конфигурация: список RSS-фидов и параметры отбора."""
-
 FEEDS = [
     "https://www.getdbt.com/blog/rss.xml",
     "https://airflow.apache.org/blog/index.xml",

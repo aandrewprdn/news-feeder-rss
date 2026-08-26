@@ -8,10 +8,6 @@ from llm_summarize import summarize_batch
 from pull_news_rss import fetch_new_entries
 from telegram import send_telegram
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 
 def main() -> None:
     client = genai.Client()
