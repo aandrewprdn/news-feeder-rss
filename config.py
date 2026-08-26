@@ -6,6 +6,7 @@ FEEDS = [
     "https://medium.com/feed/airbnb-engineering",
     "https://www.databricks.com/feed",
     "https://aws.amazon.com/blogs/big-data/feed/",
+    "https://www.rudderstack.com/blog/rss.xml",
 ]
 
 DE_KEYWORDS = [
