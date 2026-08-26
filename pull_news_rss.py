@@ -22,7 +22,7 @@ def fetch_new_entries(seen_ids: set[str]) -> list[dict]:
                     "id": entry_id,
                     "title": entry.title,
                     "link": entry.link,
-                    "summary": getattr(entry, "summary", ""),
+                    "description": getattr(entry, "description", ""),
                     "source": feed.feed.title,
                 })
     return new_entries
