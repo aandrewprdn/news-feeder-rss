@@ -27,5 +27,5 @@ FINAL_MAX_ARTICLES = 15
 
 SEEN_IDS_FILE = "seen_ids.json"
 
-GEMINI_MODEL = "gemini-3.5-flash"
+GEMINI_MODEL = "gemini-3.1-flash-lite"
 
